@@ -1,0 +1,29 @@
+﻿@page "/servercounter"
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@rendermode InteractiveServer
+@using Fluxor
+@using Blazor8WithFluxor.State.ServerCounter
+
+<PageTitle>Server Counter</PageTitle>
+
+<h1>Server Counter</h1>
+
+Dispatcher HashCode: @Dispatcher.GetHashCode()
+
+<p role="status">Current count: @ServerCounterState.Value.CurrentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    [Inject]
+    private IState<ServerCounterState> ServerCounterState { get; set; }
+
+    [Inject]
+    private IDispatcher Dispatcher { get; set; }
+
+    private void IncrementCount()
+    {
+       Dispatcher.Dispatch(new IncrementServerCounterAction());
+    }
+}

@@ -1,0 +1,29 @@
+﻿@page "/clientcounter"
+@rendermode InteractiveWebAssembly
+@inherits Fluxor.Blazor.Web.Components.FluxorComponent
+@using Fluxor
+@using Blazor8WithFluxor.Client.State.ClientCounter
+
+<PageTitle>Client Counter</PageTitle>
+
+<h1>Client Counter</h1>
+
+Dispatcher HashCode: @Dispatcher.GetHashCode()
+
+<p role="status">Current count: @ClientCounterState.Value.CurrentCount</p>
+
+<button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
+
+@code {
+
+    [Inject]
+    private IState<ClientCounterState> ClientCounterState { get; set; }
+
+    [Inject]
+    private IDispatcher Dispatcher { get; set; }
+
+    private void IncrementCount()
+    {
+       Dispatcher.Dispatch(new IncrementClientCounterAction());
+    }
+}
