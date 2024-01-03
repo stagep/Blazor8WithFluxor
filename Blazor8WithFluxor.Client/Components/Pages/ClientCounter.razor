@@ -1,6 +1,7 @@
 ﻿@page "/clientcounter"
-@rendermode InteractiveWebAssembly
+@rendermode @(new InteractiveWebAssemblyRenderMode(prerender: false))
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
+<Fluxor.Blazor.Web.StoreInitializer />
 @using Fluxor
 @using Blazor8WithFluxor.Client.State.ClientCounter
 

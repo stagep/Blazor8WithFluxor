@@ -6,7 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddFluxor(options =>
 {
-    options.ScanAssemblies(typeof(Program).Assembly, new[] { typeof(ClientCounter).Assembly });
+    options.ScanAssemblies(typeof(Program).Assembly);
     options.UseReduxDevTools();
 });
 

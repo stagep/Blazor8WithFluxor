@@ -1,30 +1,30 @@
-﻿@page "/servercounter"
+﻿@page "/serverdoublecounter"
 @inherits Fluxor.Blazor.Web.Components.FluxorComponent
 @rendermode InteractiveServer
 <Fluxor.Blazor.Web.StoreInitializer />
 @using Fluxor
-@using Blazor8WithFluxor.State.ServerCounter
+@using Blazor8WithFluxor.State.ServerDoubleCounter
 
-<PageTitle>Server Counter</PageTitle>
+<PageTitle>Server Double Counter</PageTitle>
 
-<h1>Server Counter</h1>
+<h1>Server Double Counter</h1>
 
 Dispatcher HashCode: @Dispatcher.GetHashCode()
 
-<p role="status">Current count: @ServerCounterState.Value.CurrentCount</p>
+<p role="status">Current count: @ServerDoubleCounterState.Value.CurrentCount</p>
 
 <button class="btn btn-primary" @onclick="IncrementCount">Click me</button>
 
 @code {
 
     [Inject]
-    private IState<ServerCounterState> ServerCounterState { get; set; }
+    private IState<ServerDoubleCounterState> ServerDoubleCounterState { get; set; }
 
     [Inject]
     private IDispatcher Dispatcher { get; set; }
 
     private void IncrementCount()
     {
-       Dispatcher.Dispatch(new IncrementServerCounterAction());
+        Dispatcher.Dispatch(new IncrementServerDoubleCounterAction());
     }
 }
