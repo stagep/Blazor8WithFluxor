@@ -1,1 +1,1 @@
-This example demonstrates the use of Fluxor using InteractiveServer and InteractiveWebAssembly render modes. The Server Counter will work if you select it from the NavBar and then reload the page. Once the Server Counter works, the Client Counter will not work.
+This example demonstrates the use of Fluxor using InteractiveServer and InteractiveWebAssembly render modes. Prerendering cannot be used with InteractiveWebAssembly render mode. Server side state is maintained until you switch to InteractiveWebAssembly render mode.
